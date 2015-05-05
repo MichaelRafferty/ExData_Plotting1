@@ -1,9 +1,13 @@
 # plot2.R 
 ## creates plot2.png
 
+## first download the data
+download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", 
+              "power.zip")
+
 ## first read the data:
 power.data <- read.table(
-    "household_power_consumption.txt", 
+    unz("power.zip", "household_power_consumption.txt"),
     header=TRUE, sep=";", na.strings="?")
 
 ## subset to the dates we care about
